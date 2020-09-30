@@ -1,16 +1,17 @@
 import React from 'react';
-import { AMSynth } from 'tone';
-
-const synth = new AMSynth().toMaster()
-
-// synth.triggerAttackRelease('C4', '8n' )
-
+import { AppContextProvider } from './context'
+import Layout from './components/layout'
+import ModeSwitch from './components/mode-switch'
+import Synth from './components/synth'
 
 function App() {
   return (
-   <>
-   <button onClick= {()=> synth.triggerAttackRelease('C4', '8n' )}>Play</button>
-   </>
+    <AppContextProvider>
+      <Layout>
+        <ModeSwitch />
+        <Synth />
+      </Layout>
+    </AppContextProvider>
   );
 }
 
